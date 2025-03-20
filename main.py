@@ -1,2 +1,5 @@
-print("Hello World!")
-print("ça marche !!")
+import pygame
+from pygame.locals import *
+import pygame, sys
+
+
