@@ -1,2 +1,3 @@
 # Projet_Transverse
-Repository du groupe Lana, Emanuelle, Almah, Bryan et Sacha
+Repository du groupe 2
+Memnbres : Lana, Emanuelle, Almha, Bryan et Sacha
