@@ -17,3 +17,7 @@ class Ennemi:
     def draw_ennemi(self, surface):
         pygame.draw.rect(surface, (255, 0, 0), (self.x, self.y, self.width, self.height))
 
+    def get_rect(self):
+        # Cette méthode retourne le rectangle de l'ennemi pour détecter la collision
+        return pygame.Rect(self.x, self.y, self.width, self.height)
+
