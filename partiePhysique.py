@@ -9,17 +9,8 @@
 
 import pygame
 from pygame.locals import *
-import pygame, sys
-from joueur import *
+from tests import *
 
 
-background_color = (0,255,0)
-width = 1000
-heigh = 750
-
-
-screen = pygame.display.set_mode((width,heigh))
-pygame.display.set_caption("test_window_2")
-screen.fill(background_color)
-pygame.display.flip()
-
+constanteDeGravitation = 9.8
+gravitee = constanteDeGravitation * joueur.masse
