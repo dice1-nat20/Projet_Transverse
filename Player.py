@@ -8,49 +8,56 @@
 ##########################################
 
 import pygame
+from pygame.draw_py import draw_polygon
 from pygame.locals import *
 import pygame, sys
-from math import sin, cos, tan
+from math import sin, cos
 from partiePhysique import *
 
 
 class Player:
-    def __init__(self,sprite,x,y,masse,jf):
+    def __init__(self,sprite,x,y,masse):
         self.playerSpr = pygame.image.load(sprite)
         # position initiale
         self.playerX = x
         self.playerY = y
         # caractéristiques pour la partie physique
         self.masse = masse
-        self.jumpForce = jf # la force (en Newton ?) qu'il deploit pour sauter
         self.yChange = 0 # changement lié à la gravité
         self.vitesse = 0
 
-    def drawPlayer(self,window):
-        window.blit(self.playerSpr,(self.playerX,self.playerY))
+    def drawPlayer(self,x,y):
+        self.playerX = x
+        self.playerY = y
+        self.move(x,y)
 
     def playerJump(self):
-        a = 45 # la déduction est triviale
-        y0 = self.player.playerY
-        v0 = self.player.vitesse
-        t = 1
-        y = y0 + 1
+        a = 45 # par une déduction triviale # angle de la courbe, modifiable
+        y0 = self.playerY   # y de départ
+        y = y0 - 1
+        v0 = self.vitesse   # viitesse de départ
+        t = 0   # temps au début
+        x = 0   # x de départ
+        positions = []  # les postions qui seront retournées
 
-        while y != y0:
+        while y <= y0:
             y = (-1/2) * constanteDeGravitation * t**2 + (v0 * sin(a)) * t + y0
-            self.playerY = y
+            x += 1
+            t += 5
+            positions.append((x,y))
+        return positions
 
     def playerGoRight(self):
         return
     def playerGoLeft(self):
         return
-    def playerMovements(self):
+    def playerMovements(self,window):
         keys = pygame.key.get_pressed()
         if keys[pygame.K_SPACE]:
-            self.playerJump(self)
+            positions = self.playerJump()
         elif keys[pygame.K_d]:
-            self.playerGoRight(self)
+            self.playerGoRight()
         elif keys[pygame.K_q]:
-            self.playerGoLeft(self)
+            self.playerGoLeft()
 
 

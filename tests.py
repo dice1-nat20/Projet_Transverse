@@ -8,23 +8,36 @@
 ##########################################
 
 import pygame
+from pygame.draw_py import draw_pixel
 from pygame.locals import *
 import pygame, sys
-from joueur import *
-from windows import *
+from Player import Player
+from windows import screen
+from time import sleep
 
 
 playerSprite = 'images&otherFiles/placeHolderPlayer.png'
 running = True
 
 while running:
-    joueur = Player(playerSprite,250,650,80,10)
-    Player.drawPlayer(joueur,screen)
-    Player.playerMovements()
+    x = 250
+    y = 500
+
+    joueur = Player(playerSprite,x,y,80)
+    screen.blit(joueur.playerSpr,(x,y))
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
             running = False
+        elif event.type == pygame.K_SPACE:
+            pos = joueur.playerJump()
+            for i in pos:
+                joueur.playerX = pos[i][0]
+                joueur.playerY = pos[i][1]
+                joueur.drawPlayer(joueur.playerX,joueur.playerY)
+                pygame.display.flip()
+                sleep(10)
+                i += 1
     pygame.display.update()
 
 pygame.quit()

@@ -10,12 +10,12 @@
 import pygame
 from pygame.locals import *
 import pygame, sys
-from joueur import *
+
 
 
 background_color = (0,255,0)
 width = 1000
-heigh = 750
+heigh = 800
 
 
 screen = pygame.display.set_mode((width,heigh))

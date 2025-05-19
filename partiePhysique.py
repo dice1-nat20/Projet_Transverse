@@ -9,8 +9,8 @@
 
 import pygame
 from pygame.locals import *
-from tests import *
 
 
+masse = 1
 constanteDeGravitation = 9.8
-gravitee = constanteDeGravitation * joueur.masse
+gravitee = constanteDeGravitation + masse #ça deviendra une fonction ou masse sera donnée en param
