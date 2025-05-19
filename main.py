@@ -1,7 +1,6 @@
 import pygame
+import sys
 from pygame.locals import *
-import pygame, sys
-
 
 background_color = (0,0,255)
 screen = pygame.display.set_mode((500,500))
