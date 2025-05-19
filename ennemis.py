@@ -1,3 +1,15 @@
+
+
+
+##########################################
+##       Immacolato Almha               ##
+##       Chen Lana                      ##
+##       Gbaguidi Bryan                 ##
+##       Tchana Watat Emmanuelle        ##
+##       Bertaina--David Sacha          ##
+##       Projet : Transverse            ##
+##########################################
+
 import pygame
 
 class Ennemi:
@@ -16,4 +28,3 @@ class Ennemi:
 
     def draw_ennemi(self, surface):
         pygame.draw.rect(surface, (255, 0, 0), (self.x, self.y, self.width, self.height))
-
