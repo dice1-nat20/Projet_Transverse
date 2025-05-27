@@ -1,6 +1,3 @@
-
-
-
 ##########################################
 ##       Immacolato Almha               ##
 ##       Chen Lana                      ##
@@ -12,8 +9,7 @@
 
 import pygame
 
-
-ENNEMI_SPRITE = pygame.image.load("images&otherFiles/placeHolderOther.png")
+from constantes import ENNEMI_SPRITE, groundLvL
 
 
 class Enemy(pygame.sprite.Sprite):
@@ -23,6 +19,7 @@ class Enemy(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
+        self.rect.bottom = groundLvL
         self.move_direction = 1
         self.move_counter = 0
 
@@ -32,4 +29,3 @@ class Enemy(pygame.sprite.Sprite):
         if abs(self.move_counter) > 50:
             self.move_direction *= -1
             self.move_counter *= -1
-

@@ -10,12 +10,8 @@
 import pygame
 from pygame.locals import *
 import pygame
+from constantes import SCREEN_HEIGHT, SCREEN_WIDTH
 
-# constantes
-SCREEN_WIDTH, SCREEN_HEIGHT = 1000, 800
-FPS = 60
-WHITE = (255, 255, 255)
-GREEN = (0, 255, 0)
 
 # fenêtre
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
