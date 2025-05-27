@@ -12,4 +12,4 @@ class Plateforme:
         screen.blit(self.image, (self.x, self.y))
 
     def platformHitbox(self):
-        return self.rect.topleft, self.rect.size
+        return self.rect, self.rect.size
