@@ -8,11 +8,6 @@
 ##########################################
 import pygame
 import sys
-import time
-from windows import *
-
-pygame.init()
-
 
 
 # sprites
@@ -94,6 +89,7 @@ while running:
     clock.tick(FPS)
 
     for event in pygame.event.get():
+        menus.displayGameName(screen, 250, 250)
         if event.type == pygame.QUIT:
             running = False
 
