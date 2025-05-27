@@ -15,7 +15,7 @@ class Plateforme:
     def __innit__(self):
         self.x = 0
         self.y = 0
-        self.image = image.load('plateforme.png')
+        self.image = pygame.image.load('images&otherFiles/plateforme.png')
         self.rect = self.image.get_rect()
 
     def draw(self, screen):
@@ -23,4 +23,3 @@ class Plateforme:
 
     def platformHitbox(self):
         return self.rect, self.rect.size
-

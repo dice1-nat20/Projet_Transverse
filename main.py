@@ -14,9 +14,10 @@ import sys
 player_img = pygame.image.load("images&otherFiles/placeHolderPlayer.png")
 enemy_img = pygame.image.load("images&otherFiles/placeHolderOther.png")
 
+
 class Player(pygame.sprite.Sprite):
     def __init__(self):
-        super().__init__()  # ça créer un utre objet pour le sprite à venir
+        super().__init__()  # ça créer un autre objet pour le sprite à venir
         self.image = player_img
         self.rect = self.image.get_rect()   # le rectangle du sprite (sa hitbox)
         self.rect.x = 100
@@ -54,6 +55,7 @@ class Player(pygame.sprite.Sprite):
         # mouvements
         self.rect.x += dx
         self.rect.y += dy
+
 
 class Enemy(pygame.sprite.Sprite):
     def __init__(self, x, y):

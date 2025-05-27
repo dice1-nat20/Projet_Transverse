@@ -12,10 +12,10 @@ from pygame.locals import *
 
 
 def displayGameName(screen, x, y):
-    title = pygame.image.load("Title.png", 'r')
+    title = pygame.image.load("images&otherFiles/Title.png", 'r')
     screen.blit(title, (x, y))
 
 
 def displayNames(screen, x, y):
-    title = pygame.image.load("Names.png", 'r')
+    title = pygame.image.load("images&otherFiles/Names.png", 'r')
     screen.blit(title, (x, y))
