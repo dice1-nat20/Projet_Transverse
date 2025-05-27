@@ -32,4 +32,3 @@ class Ennemi:
     def get_rect(self):
         # Cette méthode retourne le rectangle de l'ennemi pour détecter la collision
         return pygame.Rect(self.x, self.y, self.width, self.height)
-
