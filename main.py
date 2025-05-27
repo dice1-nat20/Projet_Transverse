@@ -8,6 +8,7 @@
 ##########################################
 import sys
 
+
 from ennemis import *
 from windows import *
 
@@ -20,6 +21,7 @@ PLAYER_Y = 50
 GRAVITE = 1
 FORCE_DU_SAUT = 25
 VITESSE_DEPLACEMENT = 5
+
 
 
 class Player(pygame.sprite.Sprite):
@@ -83,6 +85,7 @@ while running:
     clock.tick(FPS)
 
     for event in pygame.event.get():
+        menus.displayGameName(screen, 250, 250)
         if event.type == pygame.QUIT:
             running = False
 
