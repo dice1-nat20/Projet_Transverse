@@ -9,17 +9,15 @@
 
 import pygame
 from pygame.locals import *
-import pygame, sys
+import pygame
 
+# constantes
+SCREEN_WIDTH, SCREEN_HEIGHT = 1000, 800
+FPS = 60
+WHITE = (255, 255, 255)
+GREEN = (0, 255, 0)
 
-
-background_color = (0,255,0)
-width = 1000
-heigh = 800
-
-
-screen = pygame.display.set_mode((width,heigh))
-pygame.display.set_caption("test_window_2")
-screen.fill(background_color)
-pygame.display.flip()
-
+# fenêtre
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+pygame.display.set_caption("Monic")
+clock = pygame.time.Clock()

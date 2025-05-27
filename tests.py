@@ -32,9 +32,10 @@ while running:
         elif event.type == pygame.K_SPACE:
             pos = joueur.playerJump()
             for i in pos:
-                joueur.playerX = pos[i][0]
-                joueur.playerY = pos[i][1]
+                joueur.playerX = i[0]
+                joueur.playerY = i[1]
                 joueur.drawPlayer(joueur.playerX,joueur.playerY)
+                pygame.display.update()
                 pygame.display.flip()
                 sleep(10)
                 i += 1
