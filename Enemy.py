@@ -25,7 +25,7 @@ class Enemy(pygame.sprite.Sprite):
 
     def update(self):
         self.rect.x += self.move_direction * 4
-        self.move_counter += 1
+        self.move_counter += 0.5
         if abs(self.move_counter) > 50:
             self.move_direction *= -1
             self.move_counter *= -1

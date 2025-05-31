@@ -30,12 +30,28 @@ class Player(pygame.sprite.Sprite):
 
     def update(self, keys):
         if not self.isJumping:
-            # mouvements
-            self.vel_x = 0
+            # mouvements au sol
             if keys[pygame.K_q]:
                 self.vel_x = -VITESSE_DEPLACEMENT
             elif keys[pygame.K_d]:
                 self.vel_x = VITESSE_DEPLACEMENT
+            # prise en compte de la friction
+            else:
+                if self.vel_x > 0:
+                    self.vel_x -= FRICTION
+                    if self.vel_x < 0:
+                        self.vel_x = 0
+                elif self.vel_x < 0:
+                    self.vel_x += FRICTION
+                    if self.vel_x > 0:
+                        self.vel_x = 0
+
+            # limite de vitesse (par rapport à l'inertie)
+            if self.vel_x > VITESSE_MAX:
+                self.vel_x = VITESSE_MAX
+            if self.vel_x < -VITESSE_MAX:
+                self.vel_x = -VITESSE_MAX
+
             self.rect.x += self.vel_x
 
             # saut
@@ -45,16 +61,21 @@ class Player(pygame.sprite.Sprite):
                 self.t = 0
                 self.x0 = self.rect.x
                 self.y0 = self.rect.y
+
         else:
-            self.t += 1  # / FPS
+            self.rect.x += self.vel_x
+            self.vel_y += GRAVITE
+            self.rect.y += self.vel_y
+
+            """self.t += 1  # / FPS
             newX = self.vel_x * self.t
             newY = self.vel_y * self.t + 0.5 * GRAVITE * (self.t ** 2)
             self.rect.x = self.x0 + newX
-            self.rect.y = self.y0 + newY
+            self.rect.y = self.y0 + newY"""
 
             # gestion collision avec le sol
             if self.rect.bottom >= groundLvL:
                 self.rect.bottom = groundLvL
                 self.isJumping = False
-                self.vel_x = 0
+                #self.vel_x = 0
                 self.vel_y = 0

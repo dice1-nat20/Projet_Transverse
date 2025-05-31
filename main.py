@@ -49,7 +49,7 @@ while running:
 pygame.quit()
 sys.exit()
 
-# en gros, on a besoni de transformer FORCE_DU_SAUT et VITESSE_DEPLACEMENT en variables pour pouvoir utilisé les equations horraires.
+# en gros, on a besoin  de transformer FORCE_DU_SAUT et VITESSE_DEPLACEMENT en variables pour pouvoir utilisé les equations horraires.
 # avec vitesse_deplacement (en variable), on aurait de l'inertie, et force_du_saut (en variable aussi) dépendrait de vitesse_deplacement
 # on pourrait ensuite ajouter une touche (genre fleche haut et bas) qui modifierait la gravité, QUE si isJumping == False !!
 # après pour le niveau il faudra modifier le groundLvL pour faire genre c'est une plateformes (alors que ce sera totalement une image)
