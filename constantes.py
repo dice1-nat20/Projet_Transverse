@@ -17,8 +17,8 @@ PLAYER_Y = 50
 
 # constantes
 GRAVITE = 1
-FORCE_DU_SAUT = 24
+FORCE_DU_SAUT = 21
 VITESSE_DEPLACEMENT = 4
 VITESSE_MAX = 16
-FRICTION = 0.2
+FRICTION = 0.3
 groundLvL = SCREEN_HEIGHT - PLAYER_Y  # quand on voudra faire une plateforme, on ferra changer la valeur de SOL
