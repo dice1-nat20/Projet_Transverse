@@ -22,7 +22,8 @@ clock = pygame.time.Clock()
 player = Player()
 
 # création des ennemis
-enemies = [Enemy(500,SCREEN_HEIGHT-100)]
+enemies = [Enemy(500,SCREEN_HEIGHT - 100),
+           Enemy(1000,SCREEN_HEIGHT - 100)]
 
 # création des plateformes
 plateformes = [Plateform(400,groundLvL - 200, 150),
@@ -71,11 +72,14 @@ while jeuEstEnCoursDeFonctionnement:
     for plt in plateformes:
         plt.update(scroll)
     for plt in plateformes:
-        if player.vel_y >= 0 and player.rect.colliderect(plt.rect):
-            if player.rect.bottom - plt.rect.top <= 10:
+        if player.rect.colliderect(plt.rect):
+            if player.vel_y >= 0 and player.rect.bottom <= plt.rect.top + 10:
                 player.rect.bottom = plt.rect.top
                 player.vel_y = 0
                 player.isJumping = False
+            elif player.vel_y < 0 and player.rect.top >= plt.rect.bottom - 10:
+                player.rect.top = plt.rect.bottom
+                player.vel_y = 0
 
     # affichage de la courbe lors du saut
     if player.isJumping:
