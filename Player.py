@@ -71,6 +71,6 @@ class Player(pygame.sprite.Sprite):
             # gestion collision avec le sol
             if self.rect.bottom >= groundLvL:
                 self.rect.bottom = groundLvL
-                self.isJumping = False
                 #self.vel_x = 0
                 self.vel_y = 0
+                self.isJumping = False
