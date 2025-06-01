@@ -14,37 +14,73 @@ from windows import *
 
 
 pygame.init()
+clock = pygame.time.Clock()
+
+backgroundX = 0
+
 
 player = Player()
 player_group = pygame.sprite.Group()
 player_group.add(player)
 
-enemies = pygame.sprite.Group()
-for i in range(1):
-    enemy = Enemy(300 + i * 150, SCREEN_HEIGHT - 150)
-    enemies.add(enemy)
+enemies = [Enemy(500,SCREEN_HEIGHT-100),Enemy(1000,SCREEN_HEIGHT-100)]
+
+plateformes = [{'x': 400, 'y': SCREEN_HEIGHT-200, 'width':100},
+               {'x': 800, 'y': SCREEN_HEIGHT-250, 'width':100},
+               {'x': 1000, 'y': SCREEN_HEIGHT-310, 'width':150}]
 
 # jeu
 running = True
 while running:
     clock.tick(FPS)
 
+    # fermeture de la fenêtre
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
 
+    # mouvements
     keys = pygame.key.get_pressed()
     player.update(keys)
-    enemies.update()
 
-    if pygame.sprite.spritecollide(player, enemies, False):
+    world_shift = 0
+    if player.rect.x >= DEAD_ZONE_D:
+        bougeDeLa = player.rect.x - DEAD_ZONE_D
+        player.rect.x = DEAD_ZONE_D
+        world_shift = bougeDeLa
+    elif player.rect.x <= DEAD_ZONE_G:
+        bougeDeLa = player.rect.x - DEAD_ZONE_G
+        player.rect.x = DEAD_ZONE_G
+        world_shift = bougeDeLa
+
+    for enemi in enemies:
+        if enemi.rect.x > player.rect.x:
+            enemi.rect.x -= world_shift
+
+    for plt in plateformes:
+        if plt['x'] > player.rect.x:
+            plt['x'] -= world_shift
+
+    backgroundX -= world_shift // 2
+
+    for enemi in enemies:
+        enemi.update()
+
+    colisions_JE = pygame.Rect(player.rect.x,player.rect.y,player.rect.width,player.rect.height)
+    for enemi in enemies:
+        if colisions_JE.colliderect(enemi.rect):
+            print("Collision détectée !")
+            running = False
+
+    drawWindow(player,enemies,plateformes,backgroundX)
+    """if pygame.sprite.spritecollide(player, enemies, False):
         print("Game Over!")
         running = False
 
-    screen.fill(WHITE)
+    screen.fill(BACKGROUND)
     player_group.draw(screen)
     enemies.draw(screen)
-    pygame.display.flip()
+    pygame.display.flip()"""
 
 pygame.quit()
 sys.exit()

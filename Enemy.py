@@ -13,8 +13,8 @@ from constantes import ENNEMI_SPRITE, groundLvL
 
 
 class Enemy(pygame.sprite.Sprite):
-    def __init__(self, x, y):
-        super().__init__()
+    def __init__(self, x, y):   # là où le joueur prends keys en param (les touches préssées), ici il prend direct des coordonnées
+        super().__init__()  # comme pour le joueur, on crée une sorte d'object pour le sprite
         self.image = ENNEMI_SPRITE
         self.rect = self.image.get_rect()
         self.rect.x = x
