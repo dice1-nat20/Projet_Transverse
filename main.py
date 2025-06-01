@@ -25,9 +25,9 @@ player = Player()
 enemies = [Enemy(500,SCREEN_HEIGHT-100)]
 
 # création des plateformes
-plateformes = [Plateform(400,groundLvL - 200, 100),
-               Plateform(800,groundLvL - 250, 150),
-               Plateform(1200,groundLvL - 300, 120)]
+plateformes = [Plateform(400,groundLvL - 200, 150),
+               Plateform(800,groundLvL - 250, 200),
+               Plateform(1200,groundLvL - 300, 180)]
 
 # quelques variables utiles
 scroll = 0
