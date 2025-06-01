@@ -6,8 +6,8 @@ SCREEN_WIDTH, SCREEN_HEIGHT = 1200, 800
 FPS = 60
 backgroundIMG = pygame.image.load("images&otherFiles/jk.png")
 GREEN = (0, 255, 0)
-DEAD_ZONE_G = SCREEN_WIDTH // 4
-DEAD_ZONE_D = SCREEN_WIDTH * 3 // 4
+VITESSE_DE_SCROLL = 2.5
+VICTORY_ZONE = pygame.Rect(2000,SCREEN_HEIGHT - 150, 100, 100)
 
 # sprites
 PLAYER_SPRITE = pygame.image.load("images&otherFiles/placeHolderPlayer.png")
@@ -18,9 +18,8 @@ PLAYER_X = 50
 PLAYER_Y = 50
 
 # constantes
-GRAVITE = 1
 FORCE_DU_SAUT = 21
-VITESSE_DEPLACEMENT = 4
+VITESSE_DEPLACEMENT = 3
 VITESSE_MAX = 20
 FRICTION = 0.3
-groundLvL = SCREEN_HEIGHT - PLAYER_Y  # quand on voudra faire une plateforme, on ferra changer la valeur de SOL
+groundLvL = SCREEN_HEIGHT - 50

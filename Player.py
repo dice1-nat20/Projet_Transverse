@@ -27,6 +27,7 @@ class Player(pygame.sprite.Sprite):
         self.isJumping = False
         self.x0 = self.rect.x
         self.y0 = self.rect.y
+        self.poids = 1.0
 
     def update(self, keys):
         if not self.isJumping:
@@ -64,14 +65,8 @@ class Player(pygame.sprite.Sprite):
 
         else:
             self.rect.x += self.vel_x
-            self.vel_y += GRAVITE
+            self.vel_y += self.poids
             self.rect.y += self.vel_y
-
-            """self.t += 1  # / FPS
-            newX = self.vel_x * self.t
-            newY = self.vel_y * self.t + 0.5 * GRAVITE * (self.t ** 2)
-            self.rect.x = self.x0 + newX
-            self.rect.y = self.y0 + newY"""
 
             # gestion collision avec le sol
             if self.rect.bottom >= groundLvL:

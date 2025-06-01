@@ -31,7 +31,7 @@ def drawWindow(player,enemies,plateformes, backgroundX,scroll,pointsDeLaTrajecto
         pygame.draw.circle(screen,(0,255,0),(x - scroll,y),3)
 
     for plt in plateformes:
-        pygame.draw.rect(screen,(100,100,100),(plt['x']-scroll,plt['y'],plt['width'],10))
+        plt.draw(screen)
 
     for enemi in enemies:
         screen.blit(enemi.image, (enemi.rect.x - scroll, enemi.rect.y))
