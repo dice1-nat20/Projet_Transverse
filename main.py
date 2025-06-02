@@ -28,7 +28,10 @@ enemies = [Enemy(500,SCREEN_HEIGHT - 100),
 # création des plateformes
 plateformes = [Plateform(400,groundLvL - 200, 150),
                Plateform(800,groundLvL - 250, 200),
-               Plateform(1200,groundLvL - 300, 180)]
+               Plateform(1200,groundLvL - 300, 180),
+               Plateform(1800,groundLvL - 250, 200),
+               Plateform(2200,groundLvL - 350, 200),
+               Plateform(2400,groundLvL - 300, 150)]
 
 # quelques variables utiles
 scroll = 0
@@ -77,9 +80,8 @@ while jeuEstEnCoursDeFonctionnement:
                 player.rect.bottom = plt.rect.top
                 player.vel_y = 0
                 player.isJumping = False
-            elif player.vel_y < 0 and player.rect.top >= plt.rect.bottom - 10:
-                player.rect.top = plt.rect.bottom
-                player.vel_y = 0
+                estSurLaPlateforme = True
+
 
     # affichage de la courbe lors du saut
     if player.isJumping:
@@ -110,7 +112,7 @@ if estVictoire:
     screen.fill((0,0,0))
     screen.blit(surfaceDuTexte,(SCREEN_WIDTH // 2 - surfaceDuTexte.get_width() // 2, SCREEN_HEIGHT // 2 - surfaceDuTexte.get_height() // 2))
     pygame.display.flip()
-    pygame.time.delay(4500)
+    pygame.time.delay(3000)
 
 pygame.quit()
 sys.exit()
